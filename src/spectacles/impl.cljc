@@ -1,5 +1,8 @@
 (ns spectacles.impl
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s]
+            #?(:cljs [cljs.js :refer [eval]])
+            #?(:cljs [goog.string :refer [format]])
+            #?(:cljs [goog.string.format])))
 
 (defn- spec-form-type [x]
   (cond (seq? x) (first x)
